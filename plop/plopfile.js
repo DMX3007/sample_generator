@@ -34,9 +34,9 @@ module.exports = function(plop) {
           template: 'import { {{name}} } from \'./{{name}}.component\';'
         });
         actions.push({
-          type: 'modify',
+          type: 'append',
           path: '../apps/admin-web/public/src/modules/journals/_module.js',
-          pattern: /(angular\.module\('journals', \[\]\))/g,
+          pattern: '/*PLOP_INJECT_IMPORT*/',
           template: `$1\n\njournalsModule.component('{{name}}', {{name}});`
         });
         actions.push({
