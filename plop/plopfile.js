@@ -37,7 +37,7 @@ module.exports = function(plop) {
           type: 'append',
           path: '../apps/admin-web/public/src/modules/journals/_module.js',
           pattern: '/*PLOP_INJECT_IMPORT*/',
-          template: `$1\n\njournalsModule.component('{{name}}', {{name}});`
+          template: `\njournalsModule.component('{{name}}', {{name}});`
         });
         actions.push({
           type: 'append',
