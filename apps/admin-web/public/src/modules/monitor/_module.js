@@ -1,0 +1,1 @@
+export const monitorModule = angular.module('monitor', [])

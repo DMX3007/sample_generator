@@ -1,0 +1,30 @@
+router.get('/{{name}}', async (req, res) => {
+  try {
+    console.log('get Charts /{{name}}');
+    const end = moment();
+    const start = moment().subtract(30, 'days');
+    const labels = [];
+    const data = [];
+    for (; start <= end; start.add(1, 'days')) {
+      const datetime = {
+        $gte: start.format('YYYY-MM-DD 00:00:00'),
+        $lte: start.format('YYYY-MM-DD 23:59:59'),
+      };
+      labels.push(start.format('DD.MM'));
+      const defaultQuery = {
+        datetime,
+      };
+      data.push(Math.random() * 100);
+    }
+    res.json({
+      labels,
+      data,
+    });
+  } catch (err) {
+    console.log('err', err);
+    res.json({
+      labels: [],
+      data: [],
+    });
+  }
+});

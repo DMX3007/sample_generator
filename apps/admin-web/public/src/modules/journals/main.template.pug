@@ -1,0 +1,28 @@
+// PLOP_INJECT_IMPORT
+
+table.table.table-bordered(style="width: 100%")
+  thead
+    tr
+      th date
+      th couplingId
+      th analyzeId
+      th state
+      th contacts
+      th contactsPairs
+      th companies
+      th companiesPairs
+    tr
+      th
+        input.form-control(
+          type="text",
+          placeholder="Дата",
+          date-time-range-picker,
+          period="$ctrl.filter.period"
+        ) 
+      th
+      th
+      th 
+      th 
+      th 
+      th 
+      th

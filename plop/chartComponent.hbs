@@ -1,0 +1,48 @@
+import template from './{{name}}.template';
+
+const {{name}} = {
+  template: template(),
+  bindings: {
+    report: '<',
+  },
+  controller: [
+    function() {
+      this.$onInit = function() {
+        this.chartParams = {
+          type: 'bar',
+          data: {
+            datasets: [
+              {
+                label: 'Data',
+                data: this.report.data,
+                backgroundColor: this.report.data.map(function() {
+                  return '#00ff00';
+                }),
+              },
+            ],
+            labels: this.report.labels,
+          },
+          options: {
+            responsive: true,
+            legend: {
+              display: false,
+              position: 'left',
+            },
+            scales: {
+              x: {
+                stacked: false,
+                beginAtZero: true,
+              },
+              y: {
+                stacked: false,
+                min: 0,
+              },
+            },
+          },
+        };
+      };
+    },
+  ],
+};
+
+export { {{name}} };
